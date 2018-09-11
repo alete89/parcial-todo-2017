@@ -21,6 +21,7 @@ class DashboardViewModel {
 	}
 	
 	def void setTareas(){
+		this.tareas = new ArrayList()
 		this.tareas = Repo.instance.tareas
 	}
 	
