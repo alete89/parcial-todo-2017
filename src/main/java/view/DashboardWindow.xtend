@@ -37,6 +37,7 @@ class DashboardWindow extends Window<DashboardViewModel>{
 		new Table<Tarea>(inferior,Tarea) => [
 			bindItemsToProperty("tareas")
 			numberVisibleRows = 5
+			value <=> "tareaSeleccionada"
 			new Column<Tarea>(it) => [
 				title = "Descripcion"
 				bindContentsToProperty("descripcion")
@@ -46,6 +47,10 @@ class DashboardWindow extends Window<DashboardViewModel>{
 				bindContentsToProperty("listo")
 			]
 		
+		]
+		new Button(inferior) => [
+			caption = "Hacer/Deshacer"
+			onClick[modelObject.toggleListo]
 		]
 	}
 	

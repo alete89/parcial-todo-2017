@@ -11,6 +11,7 @@ import org.uqbar.commons.model.utils.ObservableUtils
 @Accessors
 @Observable
 class DashboardViewModel {
+	Tarea tareaSeleccionada
 	String descripcion
 	List<Tarea> tareas = new ArrayList()
 	
@@ -22,4 +23,9 @@ class DashboardViewModel {
 	def void setTareas(){
 		this.tareas = Repo.instance.tareas
 	}
+	
+	def void toggleListo() {
+		tareaSeleccionada.toggleListo
+	}
+	
 }
