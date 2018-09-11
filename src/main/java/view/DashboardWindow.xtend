@@ -23,15 +23,21 @@ class DashboardWindow extends Window<DashboardViewModel>{
 	
 	override createContents(Panel mainPanel) {
 		val superior = new Panel(mainPanel) => [layout = new HorizontalLayout]
+		val medio = new Panel(mainPanel) => [layout = new HorizontalLayout]
 		val inferior = new Panel(mainPanel)
 		new TextBox(superior) => [
 			value <=> "descripcion"
 		]
 		new Button(superior) => [
 			caption = "Agregar tarea"
-			onClick[modelObject.crearTarea
-				ObservableUtils.firePropertyChanged(modelObject,"descripcion")
-			]
+			onClick[modelObject.crearTarea]
+		]
+		new TextBox(medio) => [
+			value <=> "descripcionEditada"
+		]
+		new Button(medio) => [
+			caption = "Editar tarea"
+			onClick[modelObject.editarDescripcion()]
 		]
 		
 		new Table<Tarea>(inferior,Tarea) => [

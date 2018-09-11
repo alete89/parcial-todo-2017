@@ -2,17 +2,17 @@ package viewModel
 
 import java.util.ArrayList
 import java.util.List
+import model.Repo
 import model.Tarea
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.model.annotations.Observable
-import model.Repo
-import org.uqbar.commons.model.utils.ObservableUtils
 
 @Accessors
 @Observable
 class DashboardViewModel {
 	Tarea tareaSeleccionada
 	String descripcion
+	String descripcionEditada
 	List<Tarea> tareas = new ArrayList()
 	
 	def crearTarea(){
@@ -27,6 +27,10 @@ class DashboardViewModel {
 	
 	def void toggleListo() {
 		tareaSeleccionada.toggleListo
+	}
+	
+	def void editarDescripcion(){
+		tareaSeleccionada.editarDescripcion(this.descripcionEditada)
 	}
 	
 }
