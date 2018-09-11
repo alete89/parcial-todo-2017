@@ -15,6 +15,11 @@ class Tarea {
 		this.listo = listo
 	}
 	
+	new(String descripcion) {
+		this.descripcion = descripcion
+		this.listo = false
+	}
+	
 	def toggleListo(){
 		this.listo = !this.listo
 	}
