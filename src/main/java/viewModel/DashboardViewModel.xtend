@@ -6,6 +6,7 @@ import model.Tarea
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.model.annotations.Observable
 import model.Repo
+import org.uqbar.commons.model.utils.ObservableUtils
 
 @Accessors
 @Observable
@@ -15,9 +16,10 @@ class DashboardViewModel {
 	
 	def crearTarea(){
 		Repo.instance.agregarTarea(new Tarea(this.descripcion))
+		setTareas
 	}
 	
-	def setTareas(){
+	def void setTareas(){
 		this.tareas = Repo.instance.tareas
 	}
 }
