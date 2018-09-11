@@ -9,6 +9,7 @@ class Program extends Application {
 	
 	override protected createMainWindow() {
 		Repo.instance.agregarTarea(new Tarea("hacer algo"))
+		Repo.instance.agregarTarea(new Tarea("hacer otra cosa"))
 		val viewModel = new DashboardViewModel
 		viewModel.setTareas
 		new DashboardWindow(this, viewModel)
